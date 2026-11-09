@@ -1,4 +1,5 @@
 from board import Board
+from pieces.pawns import Pawns
 
 def main() -> None:
     chess_board = Board()
