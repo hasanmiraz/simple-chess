@@ -1,6 +1,9 @@
 from abc import ABC, abstractmethod
 
 class Pieces(ABC):
+    name = "N"
+    player = "N"
+    
     def __init__(self, x=0, y=0, name=None, state=True, colour=None):
         self.x = x
         self.y = y

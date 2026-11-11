@@ -1,5 +1,9 @@
+from pieces.pieces import Pieces
+
 class Cells:
-    def __init__(self, x, y, item=None) -> None:
+    item: None|Pieces = None
+    
+    def __init__(self, x, y, item: None | Pieces=None) -> None:
         self.x = x
         self.y = y
         self.colour = self.set_colour(self.x, self.y)
@@ -11,11 +15,10 @@ class Cells:
         else:
             return "W"
     
-    def set_cell(self, x, y, item=None, player=None):
+    def set_cell(self, x, y, item=None):
         self.x = x
         self.y = y
         self.item = item
-        self.player = player
         
     def get_cell(self, x, y):
         return {
@@ -23,11 +26,10 @@ class Cells:
             "y": self.y,
             "color": self.colour,
             "item": self.item,
-            "player": self.player
         }
     
     def get_cells_compact(self):
-        item_name = self.item.name if self.item is not None else None
-        item_player = self.item.player if self.item is not None else None
+        item_name = self.item.name if self.item is not None else "N"
+        item_player = self.item.player if self.item is not None else "N"
         return (self.x, self.y, self.colour, item_name, item_player)
     
